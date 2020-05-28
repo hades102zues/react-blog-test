@@ -1,0 +1,25 @@
+.dial {
+  border: 2px solid red;
+  /* width: 31.2rem; */
+  height: 4.2rem;
+  display: flex;
+  list-style: none;
+}
+
+.dial__item {
+  height: 100%;
+  background-color: #9c27b0;
+  color: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.dial__item:hover {
+  background-color: #7b1fa2;
+}
+
+.dial__item_active {
+  background-color: #7b1fa2;
+}
