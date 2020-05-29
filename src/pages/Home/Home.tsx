@@ -5,15 +5,15 @@ import PageDial from "./PageDial/PageDial";
 const home: React.FC = () => {
   const page: number = 6;
   const total: number = 1000;
-  const display: number = 7;
+  const display: number = 9;
 
   return (
     <div className={styles.home}>
       <PageDial
         currentPage={page}
         totalPages={total}
-        displayTotal={display} //must be an odd number and should also be ATLEAST 7
-        //color="#388E3C"
+        displayTotal={display} //must be an odd number and should be ATLEAST 7
+        color="#FF5722"
         onClick={() => null}
       />
     </div>

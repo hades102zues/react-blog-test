@@ -91,8 +91,9 @@ const dial: React.FC<Props> = (props) => {
 
   /*
    * The following is not necessary and can be excluded if wish.
-   * Makes the dial even more conventient.
-   * */
+   * Makes the dial even more conventient by adding in ... and first and final page
+   * No support for ... is added though.
+   */
 
   if (pageDial.length === displayTotal) {
     if (Number(pageDial[0]) !== 1) {
@@ -109,6 +110,7 @@ const dial: React.FC<Props> = (props) => {
       pageDial.push(totalPages.toString());
     }
   }
+
   pageDial.unshift("<<");
   pageDial.push(">>");
 
