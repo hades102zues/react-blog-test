@@ -135,7 +135,7 @@ const dial: React.FC<Props> = (props) => {
 
     return (
       <li
-        key={pageDial[i]}
+        key={pageDial[i] + Math.random().toString()}
         className={styles.dial__item} //{styles.dial__item + active}
         style={{
           color: active ? "#ffffff" : itemColor,
