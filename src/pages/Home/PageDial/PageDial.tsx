@@ -23,7 +23,7 @@ const dial: React.FC<Props> = (props) => {
   pageDial.push(currentPage.toString());
 
   /*
-    Attemp to push 3 items to the left side of current page
+    Attemp to push sidepush amount of items to the left side of current page
        1  - 2
    */
   for (let i: number = 1; i <= sidePush; i++) {
@@ -37,7 +37,7 @@ const dial: React.FC<Props> = (props) => {
   }
 
   /*
-    Attemp to push 3 items to the right side of current page
+    Attemp to push sidepush amount of items to the right side of current page
        1 -  2  - 3 4 5
    */
   for (let i: number = 1; i <= sidePush; i++) {
@@ -135,23 +135,33 @@ const dial: React.FC<Props> = (props) => {
 
     return (
       <li
+        key={pageDial[i]}
         className={styles.dial__item} //{styles.dial__item + active}
         style={{
-          width: (100 / displayTotal).toString() + "%", //fraction of the whole
+          color: active ? "#ffffff" : itemColor,
+          //width: (100 / displayTotal).toString() + "%", //fraction of the whole
           // borderRight: lastItemBorderFix,
           // color: active.trim() !== "" ? "ffffff" : itemColor,
-          color: active ? "#ffffff" : itemColor,
-          background: active ? itemColor : "",
+          // color: active ? "#ffffff" : itemColor,
+          // background: active ? itemColor : "",
         }}
       >
         <p
           onMouseEnter={(e: React.MouseEvent<HTMLElement>) => {
             (e.target as HTMLElement).style.background = itemColor;
           }}
-          onMouseLeave={(e: React.MouseEvent<HTMLElement>) => {
-            (e.target as HTMLElement).style.background = "";
+          onMouseLeave={(
+            e: React.MouseEvent<HTMLElement>,
+            isCurrentPage = active
+          ) => {
+            if (!active) {
+              (e.target as HTMLElement).style.background = "";
+            }
           }}
           className={styles.dial__item_active_corrector}
+          style={{
+            background: active ? itemColor : "",
+          }}
         >
           {pageDial[i]}
         </p>
@@ -160,12 +170,14 @@ const dial: React.FC<Props> = (props) => {
   });
 
   return (
-    <ul
-      className={styles.dial}
-      style={{ width: ((displayTotal * 47.5) / 10).toString() + "rem" }}
-    >
-      {dialItems}
-    </ul>
+    <div className={styles.wrapper}>
+      <ul
+        className={styles.dial}
+        // style={{ width: ((displayTotal * 47.5) / 10).toString() + "rem" }}
+      >
+        {dialItems}
+      </ul>
+    </div>
   );
 };
 

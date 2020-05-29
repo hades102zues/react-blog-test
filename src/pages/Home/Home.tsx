@@ -12,7 +12,7 @@ const home: React.FC = () => {
       <PageDial
         currentPage={page}
         totalPages={total}
-        displayTotal={display} //must be an odd number and should be ATLEAST 7
+        displayTotal={display} //Either 9, 7. 5 is fine only for mobile
         color="#FF5722"
         onClick={() => null}
       />

@@ -62,4 +62,8 @@ code {
   h2 {
     font-size: 2rem;
   }
+
+  html {
+    font-size: 60.5%;
+  }
 }

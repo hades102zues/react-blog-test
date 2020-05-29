@@ -1,13 +1,12 @@
 .dial {
-  margin: 100px;
-
-  /* width: 31.2rem; */
+  width: 42.7rem;
   height: 4.2rem;
   display: flex;
   list-style: none;
 }
 
 .dial__item {
+  width: 4.75rem;
   height: 4.2rem;
   /* background-color: #9c27b0; */
   /* color: #ffffff; */
@@ -18,7 +17,10 @@
   border-left: 1px solid #ccc;
   border-bottom: 1px solid #ccc; */
   border-radius: 3px;
+
+  height: 100%;
   margin-right: 5px;
+  margin-bottom: 5px;
 }
 
 .dial__item:hover {
@@ -42,4 +44,17 @@
 
 .dial__item_active_corrector:hover {
   color: #ffffff;
+}
+
+@media all and (max-width: 767px) {
+  .dial {
+    flex-flow: row wrap;
+    width: 100%;
+  }
+
+  .dial__item {
+    width: 3.7rem;
+    margin-right: 9.8px;
+    margin-bottom: 9.8px;
+  }
 }
