@@ -1,5 +1,6 @@
 .dial {
-  border: 2px solid red;
+  margin: 100px;
+
   /* width: 31.2rem; */
   height: 4.2rem;
   display: flex;
@@ -7,19 +8,37 @@
 }
 
 .dial__item {
-  height: 100%;
-  background-color: #9c27b0;
-  color: #ffffff;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  height: 4.2rem;
+  /* background-color: #9c27b0; */
+  /* color: #ffffff; */
+
   cursor: pointer;
+  /* padding: 20px; */
+  /* border-top: 1px solid #ccc;
+  border-left: 1px solid #ccc;
+  border-bottom: 1px solid #ccc; */
+  border-radius: 3px;
 }
 
 .dial__item:hover {
-  background-color: #7b1fa2;
+  color: #ffffff;
 }
 
 .dial__item_active {
   background-color: #7b1fa2;
+  color: #ffffff;
+}
+
+.dial__item_active_corrector {
+  height: 100%;
+  width: 100%;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 3px;
+}
+
+.dial__item_active_corrector:hover {
+  color: #ffffff;
 }

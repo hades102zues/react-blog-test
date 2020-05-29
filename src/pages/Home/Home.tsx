@@ -3,16 +3,17 @@ import styles from "./Home.module.css";
 import PageDial from "./PageDial/PageDial";
 
 const home: React.FC = () => {
-  const page: number = 3000;
-  const total: number = 100000;
-  const display: number = 9;
+  const page: number = 6;
+  const total: number = 1000;
+  const display: number = 7;
 
   return (
     <div className={styles.home}>
       <PageDial
         currentPage={page}
         totalPages={total}
-        displayTotal={display}
+        displayTotal={display} //must be an odd number and should also be ATLEAST 7
+        //color="#388E3C"
         onClick={() => null}
       />
     </div>

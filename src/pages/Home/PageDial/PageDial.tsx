@@ -1,15 +1,18 @@
 import React from "react";
 import styles from "./PageDial.module.css";
+import { cpus } from "os";
 
 interface Props {
   currentPage: number;
   totalPages: number;
   displayTotal: number;
   onClick: (num: number) => void;
+
+  color?: string; //use this  to change the color of the component
 }
 
 const dial: React.FC<Props> = (props) => {
-  const { currentPage, totalPages, displayTotal } = props;
+  const { currentPage, totalPages, displayTotal, color } = props;
 
   const pageDial: string[] = [];
   const sidePush = (displayTotal - 1) / 2;
@@ -106,23 +109,50 @@ const dial: React.FC<Props> = (props) => {
       pageDial.push(totalPages.toString());
     }
   }
+  pageDial.unshift("<<");
+  pageDial.push(">>");
 
   console.log("Current Page: ", currentPage);
   console.log("Total Item view: ", displayTotal);
   console.log(pageDial);
   console.log("Total Number of Pages", totalPages);
 
+  const itemColor = color !== undefined ? color : "#7b1fa2";
+
   const dialItems: JSX.Element[] = pageDial.map((item, i) => {
-    const active: String =
-      Number(pageDial[i]) === currentPage ? " " + styles.dial__item_active : "";
+    // const active: String =
+    //   Number(pageDial[i]) === currentPage ? " " + styles.dial__item_active : "";
+
+    const active: boolean = pageDial[i].includes(currentPage.toString());
+
+    // const lastItemBorderFix = pageDial[i].includes(
+    //   pageDial[pageDial.length - 1]
+    // )
+    //   ? "1px solid #ccc"
+    //   : "";
+
     return (
       <li
-        className={styles.dial__item + active}
+        className={styles.dial__item} //{styles.dial__item + active}
         style={{
-          width: (100 / displayTotal).toString() + "%",
+          width: (100 / displayTotal).toString() + "%", //fraction of the whole
+          // borderRight: lastItemBorderFix,
+          // color: active.trim() !== "" ? "ffffff" : itemColor,
+          color: active ? "#ffffff" : itemColor,
+          background: active ? itemColor : "",
         }}
       >
-        <p>{pageDial[i]}</p>
+        <p
+          onMouseEnter={(e: React.MouseEvent<HTMLElement>) => {
+            (e.target as HTMLElement).style.background = itemColor;
+          }}
+          onMouseLeave={(e: React.MouseEvent<HTMLElement>) => {
+            (e.target as HTMLElement).style.background = "";
+          }}
+          className={styles.dial__item_active_corrector}
+        >
+          {pageDial[i]}
+        </p>
       </li>
     );
   });
@@ -130,7 +160,7 @@ const dial: React.FC<Props> = (props) => {
   return (
     <ul
       className={styles.dial}
-      style={{ width: ((displayTotal * 44.5) / 10).toString() + "rem" }}
+      style={{ width: ((displayTotal * 47.5) / 10).toString() + "rem" }}
     >
       {dialItems}
     </ul>
