@@ -2,15 +2,15 @@ html {
   font-size: 50.8%;
 }
 .dial {
-  width: 42.7rem;
-  height: 3.7rem;
   display: flex;
   list-style: none;
 }
 
 .dial__item {
-  width: 3.7rem;
-  height: 3.7rem;
+  /* width: 3.7rem;*/
+  /* height: 3.2rem; */
+  /* padding: 10rem; */
+
   /* background-color: #9c27b0; */
   /* color: #ffffff; */
 
@@ -37,12 +37,13 @@ html {
 
 .dial__item_active_corrector {
   height: 100%;
-  width: 100%;
-  padding: 10px;
+  /* width: 100%; */
+  padding: 5px;
   display: flex;
   justify-content: center;
   align-items: center;
   border-radius: 3px;
+  min-width: 25px;
 }
 /* 
 .dial__item_active_corrector:hover {

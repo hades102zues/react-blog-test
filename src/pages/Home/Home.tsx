@@ -10,10 +10,10 @@ interface State {
 
 const Home: React.FC = () => {
   const page: number = 6;
-  const total: number = 1000;
+  const total: number = 10000;
   const display: number = 7;
 
-  const [state, setState] = useState({ page: 6, total: 1000, display: 7 }); //useState triggers a double render. put things u dont want acted upon twice in useEffect
+  const [state, setState] = useState({ page: 6, total: 100000000, display: 7 }); //useState triggers a double render. put things u dont want acted upon twice in useEffect
 
   const pageDialClickHandler = (nextPage: number): void => {
     //function that sets the current page number
@@ -24,13 +24,14 @@ const Home: React.FC = () => {
     } as State);
   };
 
-  console.log("Home: ", state);
+  console.log("Home: ", state.page);
   return (
     <div className={styles.home}>
       <PageDial
         currentPage={state.page}
         totalPages={state.total}
         onClick={pageDialClickHandler}
+        displayTotal={display}
       />
     </div>
   );
